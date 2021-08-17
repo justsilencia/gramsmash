@@ -86,7 +86,7 @@ const IndexPage = () => {
       style={{ marginBottom: `1.45rem` }}
     />
     <h1>Give me gram to smash.</h1>
-    <h3>These buttons genrate a json file called contact_vg.json</h3>
+    <h3>These buttons generate a json file called contact_vg.json</h3>
     <h3>
       You will replace the contact_vg.json in the videograms directory of your tablet
       with the one generated here. 
