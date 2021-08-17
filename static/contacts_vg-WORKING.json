@@ -1,0 +1,13 @@
+{"contactList":{"5385312":{"id":"5385312","isSuspended":false,"name":"jen wilder",
+    
+"videogrames":{
+
+    "1247365053":{"createdDate":"2021-08-15T22:37:03.000","id":"1247365053","isKeyframeCorrupted":false,"isRead":true,"isVideogramCorrupted":false,"keyframe":"254898184.png","mailType":"VOutMail","orientation":"Landscape","recipientID":"T51369","syncStatus":"ON_DEVICE","videoPath":"254898182.mp4"},
+
+    "1247366853":{"createdDate":"2021-08-15T22:39:28.000","id":"1247366853","isKeyframeCorrupted":false,"isRead":true,"isVideogramCorrupted":false,"keyframe":"254898661.png","mailType":"VOutMail","orientation":"Landscape","recipientID":"T51369","syncStatus":"ON_DEVICE","videoPath":"254898660.mp4"},
+
+    "1234567001":{"createdDate":"2021-08-15T22:34:28.000","id":"1234567001","isKeyframeCorrupted":false,"isRead":true,"isVideogramCorrupted":false,"keyframe":"254898661.png","mailType":"VOutMail","orientation":"Landscape","recipientID":"T51369","syncStatus":"ON_DEVICE","videoPath":"../../DD/0000000001.mp4"},
+
+    "1234567002":{"createdDate":"2021-08-15T22:35:28.000","id":"1234567002","isKeyframeCorrupted":false,"isRead":true,"isVideogramCorrupted":false,"keyframe":"254898661.png","mailType":"VOutMail","orientation":"Landscape","recipientID":"T51369","syncStatus":"ON_DEVICE","videoPath":"../../DD/0000000002.mp4"}
+
+},"visible":true}},"isSuspended":false,"isVGEnabled":true}
