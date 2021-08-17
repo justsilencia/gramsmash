@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `I Smash Grams`,
+    title: `I Smash Grams!`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
