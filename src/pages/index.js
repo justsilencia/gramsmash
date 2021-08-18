@@ -94,17 +94,17 @@ const IndexPage = () => {
       alt="A gram smasher..."
       style={{ marginBottom: `1.45rem` }}
     />
-    <h1>Give me gram to smash.</h1><br/>
-    <h3>These buttons generate a json file called contact_vg.json</h3>
+    <h2>These buttons generate a json file called: contacts_vg.json</h2>
     <br/>
     <h3>
-      You will replace the contact_vg.json in the videograms directory of your tablet
+      You will replace the contacts_vg.json in the videograms directory of your tablet
       with the one generated here. 
     </h3><br/>
     <h3>
       Once you've done that, create your trusty DD folder at the root of your tablet. Name your movies
       as follows: 0000000001.MP4    -     0000000002.MP4    -    0000000100.MP4
-      IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOSLY MP4 CAPITALIZED.
+      <br/>
+      ** IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOSLY MP4 CAPITALIZED.
     </h3><br/>
     <p>
       For either of these options to work, you need to have had videograms on your tablet at some
