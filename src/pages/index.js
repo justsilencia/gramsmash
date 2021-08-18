@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { saveAs } from 'file-saver';
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import "../components/bootstrap.css";
@@ -69,10 +70,17 @@ const IndexPage = () => {
   const handleGeneric = () => {
 
     vgObj.contactList[Object.keys(vgObj.contactList)[0]].videogrames = vgJson;
-    let a = document.createElement("a");
-    a.setAttribute("href", "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(vgObj)));
-    a.setAttribute("download", "contacts_vg.json");
-    a.click();
+
+    const jsonFile = new Blob([JSON.stringify(vgObj)], {
+      type: 'application/json',
+      name: "contacts_vg.json"
+    });
+
+    saveAs(jsonFile, "contacts_vg.json");
+    // let a = document.createElement("a");
+    // a.setAttribute("href", "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(vgObj)));
+    // a.setAttribute("download", "contacts_vg.json");
+    // a.click();
   }
 
   return (
@@ -96,7 +104,7 @@ const IndexPage = () => {
     <h3>
       Once you've done that, create your trusty DD folder at the root of your tablet. Name your movies
       as follows: 0000000001.MP4    -     0000000002.MP4    -    0000000100.MP4
-      IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG.
+      IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOSLY MP4 CAPITALIZED.
     </h3><br/>
     <p>
       For either of these options to work, you need to have had videograms on your tablet at some
@@ -121,8 +129,8 @@ const IndexPage = () => {
     </p>
     <p>
       <p>
-        **<b>This option requires a compatible browser. Most phones will work, but the crappy
-        browsers on the tablet probably won't.</b>**
+        **<b>This option may not work depending on your browser version. If 
+          it doesn't, you'll have to use a pre-made one from above.</b>**
       This method doesn't give you any of your grams that you already had. It just adds
       300 slots for movies, or however many slots you enter in the field.
       </p>
