@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { saveAs } from 'file-saver';
+import { Link } from 'gatsby';
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import "../components/bootstrap.css";
@@ -55,14 +55,18 @@ const IndexPage = () => {
 
   const handleFile = (e) => {
     const jsoncontent = e.target.result;
-    let a = document.createElement("a");
-    a.setAttribute("href", "data:text/json;charset=utf-8," + encodeURIComponent(jsoncontent));
-    a.setAttribute("download", "contacts_vg.json");
-    a.click();
+
+    console.log(jsoncontent.stringify(jsoncontent));
+
+    // let a = document.createElement("a");
+    // a.setAttribute("href", "data:text/json;charset=utf-8," + encodeURIComponent(jsoncontent));
+    // a.setAttribute("download", "contacts_vg.json");
+    // a.click();
   }
 
   const handleGram = (file) => {
     let fileData = new FileReader();
+    
     fileData.onloadend = handleFile;
     fileData.readAsText(file);
   }
@@ -86,14 +90,6 @@ const IndexPage = () => {
   return (
   <Layout>
     <Seo title="Home" />
-    <StaticImage
-      src="../images/smash.jpg"
-      width={200}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A gram smasher..."
-      style={{ marginBottom: `1.45rem` }}
-    />
     <h2>These buttons generate a json file called: contacts_vg.json</h2>
     <br/>
     <h3>
@@ -104,7 +100,7 @@ const IndexPage = () => {
       Once you've done that, create your trusty DD folder at the root of your tablet. Name your movies
       as follows: 0000000001.MP4    -     0000000002.MP4    -    0000000100.MP4
       <br/>
-      ** IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOSLY MP4 CAPITALIZED.
+      ** IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOUSLY .MP4 CAPITALIZED.
     </h3><br/>
     <p>
       For either of these options to work, you need to have had videograms on your tablet at some
@@ -151,6 +147,9 @@ const IndexPage = () => {
         after them.
       </p>
       <input type="file" onChange={e => handleGram(e.target.files[0])} />
+    </p>
+    <p>
+      <Link to="/buildgroups/">Build Groups</Link>
     </p>
   </Layout>
   )
