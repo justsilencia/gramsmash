@@ -204,7 +204,7 @@ const BuildGroups = () => {
                     <p>
                         <h2>Pre-Built Group File</h2>
                         <br/>
-                        <a download href="http://gramsmash.netlify.app/vg/group1/contacts_vg.json" style={{ color: `white` }} className="btn btn-info">
+                        <a download href={`/vg/group1/contacts_vg.json`} style={{ color: `white` }} className="btn btn-info">
                             Download Pre-Built Groups contact_vg.json
                         </a>
                         <br/>
