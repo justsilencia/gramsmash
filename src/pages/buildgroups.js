@@ -18,36 +18,37 @@ const BuildGroups = () => {
 
     const addGroup = () => {
 
-        let firstFile, lastFile;
+        let firstFile, lastFile, firstFileNm;
         let lastIndex = (Number(prevIndex) + Number(slots));
 
         // First file
-        firstFile = Number(Number(prevIndex) + 1);
+        firstFile = Number(prevIndex) + 1;
+        
         if (firstFile >= 100) {
-            firstFile = "0000000" + firstFile + ".mp4";
+            firstFileNm = "0000000" + firstFile + ".MP4";
         } 
         if (firstFile < 100) {
-            firstFile = "00000000" + firstFile + ".mp4";
+            firstFileNm = "00000000" + firstFile + ".MP4";
         }
         if (firstFile < 10) {
-            firstFile = "000000000" + firstFile + ".mp4";
+            firstFileNm = "000000000" + firstFile + ".MP4";
         }
 
         // Last file
-        if (prevIndex >= 100) {
-            lastFile = "0000000" + lastIndex + ".mp4";
+        if (lastIndex >= 100) {
+            lastFile = "0000000" + lastIndex + ".MP4";
         } 
-        if (prevIndex < 100) {
-            lastFile = "00000000" + lastIndex + ".mp4";
+        if (lastIndex < 100) {
+            lastFile = "00000000" + lastIndex + ".MP4";
         }
-        if (prevIndex < 10) {
-            lastFile = "000000000" + lastIndex + ".mp4";
+        if (lastIndex < 10) {
+            lastFile = "000000000" + lastIndex + ".MP4";
         }
         
         let newGroup = {
             groupName: rndName + " " + groupName,
             slots: slots,
-            fileNames: firstFile + " -------> " + lastFile
+            fileNames: firstFileNm + " -------> " + lastFile
         }
         
         setGroups((prevState) => [...prevState, newGroup]);
