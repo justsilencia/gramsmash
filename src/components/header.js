@@ -36,7 +36,7 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
           <span
             style={{fontSize:`.4em`}}>&nbsp;&nbsp;&nbsp;
-            © {new Date().getFullYear()}, Built by Mr. Sphitz
+            © {new Date().getFullYear()}, Built by Mr. Art Sphitz
           </span>
         </Link>
       </h1>

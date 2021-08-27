@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Gram Smash`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Mr. Sphitz GramSmash`,
+    author: `Mr. Art Shpitz`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [

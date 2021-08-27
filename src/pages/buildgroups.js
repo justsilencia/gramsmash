@@ -127,7 +127,7 @@ const BuildGroups = () => {
 
     return (
         <Layout>
-        <Seo />
+        <Seo title="GramSmash Group Builder" description= "Gramsmash group builder - Mr. Art Sphitz" />
         <p>
             With this option, you can create groups, and place movies/shows within each group.
             This will make it much easier navigating to whatever you're trying to watch.

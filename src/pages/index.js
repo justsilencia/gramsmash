@@ -88,7 +88,7 @@ const IndexPage = () => {
 
   return (
   <Layout>
-    <Seo title="Home" />
+    <Seo description="GramSmash home - Mr. Art Sphitz" title="GramSmash Home" />
     <h3>These buttons generate a json file called: contacts_vg.json</h3>
     <br/>
     <b>

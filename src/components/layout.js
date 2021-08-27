@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
           }}
         >
-          © {new Date().getFullYear()}, Built by Mr. Sphitz
+          © {new Date().getFullYear()}, Built by Mr. Art Sphitz
         </footer>
       </div>
     </>
