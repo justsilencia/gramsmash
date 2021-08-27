@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import React, { useState } from "react";
 import { saveAs } from 'file-saver';
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -9,21 +8,52 @@ let vgRawJson = {"contactList":{},"isSuspended":false,"isVGEnabled":true};
 
 const BuildGroups = () => {
 
-    const [vgJson, setVgJson] = useState({});
     const [groupName, setGroupName] = useState("");
     const [slots, setSlots] = useState("");
     const [groups, setGroups] = useState([]);
+    const [prevIndex, setPrevIndex] = useState(0);
+
+    const names = ["Ava", "Olivia", "Sophia", "Isabella", "Mia", "Charlotte", "Emma", "Wren", "Victoria"];
+    const rndName = names[Math.floor(Math.random()*names.length)];
 
     const addGroup = () => {
+
+        let firstFile, lastFile;
+        let lastIndex = (Number(prevIndex) + Number(slots));
+
+        // First file
+        firstFile = Number(Number(prevIndex) + 1);
+        if (firstFile >= 100) {
+            firstFile = "0000000" + firstFile + ".mp4";
+        } 
+        if (firstFile < 100) {
+            firstFile = "00000000" + firstFile + ".mp4";
+        }
+        if (firstFile < 10) {
+            firstFile = "000000000" + firstFile + ".mp4";
+        }
+
+        // Last file
+        if (prevIndex >= 100) {
+            lastFile = "0000000" + lastIndex + ".mp4";
+        } 
+        if (prevIndex < 100) {
+            lastFile = "00000000" + lastIndex + ".mp4";
+        }
+        if (prevIndex < 10) {
+            lastFile = "000000000" + lastIndex + ".mp4";
+        }
         
         let newGroup = {
-            groupName: groupName,
-            slots: slots
+            groupName: rndName + " " + groupName,
+            slots: slots,
+            fileNames: firstFile + " -------> " + lastFile
         }
         
         setGroups((prevState) => [...prevState, newGroup]);
         setSlots("");
         setGroupName("");
+        setPrevIndex(lastIndex);
     }
 
     const buildVg = () => {
@@ -96,10 +126,10 @@ const BuildGroups = () => {
 
     return (
         <Layout>
+        <Seo />
         <p>
-            <h3>This is in beta version. Currently for testing only.</h3>
             With this option, you can create groups, and place movies/shows within each group.
-            This will make it much easier to navigate to whatever you're trying to watch.
+            This will make it much easier navigating to whatever you're trying to watch.
         </p>
         <p>
             <table style={{ border: `none` }}>
@@ -127,11 +157,18 @@ const BuildGroups = () => {
             </table>
         </p>
         <p>
+            <b>Pay close attention to File Names here!</b> You must name your files accordingly
+                for your videos to show up in the correct group.
+            
+            <br /><br />
             <ul>
             {
                 groups.map((group, i) => (
                     <li>
-                        <h2>** Group {(i+1)} ** </h2> <b>Name:</b> { group.groupName } -- <b>Slots:</b> { group.slots }
+                        <h2>** Group {(i+1)} ** </h2> 
+                        <b>Name:</b> { group.groupName } -- <b>Slots:</b> { group.slots }
+                        <br />
+                        <b>File Names: </b> { group.fileNames }
                     </li>
                 ))
             }

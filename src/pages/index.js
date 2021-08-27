@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { saveAs } from 'file-saver';
-import { Link } from 'gatsby';
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import "../components/bootstrap.css";
@@ -64,12 +63,12 @@ const IndexPage = () => {
     // a.click();
   }
 
-  const handleGram = (file) => {
-    let fileData = new FileReader();
-    
-    fileData.onloadend = handleFile;
-    fileData.readAsText(file);
-  }
+  // const handleGram = (file) => {
+  //   let fileData = new FileReader();
+
+  //   fileData.onloadend = handleFile;
+  //   fileData.readAsText(file);
+  // }
 
   const handleGeneric = () => {
 
@@ -90,18 +89,18 @@ const IndexPage = () => {
   return (
   <Layout>
     <Seo title="Home" />
-    <h2>These buttons generate a json file called: contacts_vg.json</h2>
+    <h3>These buttons generate a json file called: contacts_vg.json</h3>
     <br/>
-    <h3>
+    <b>
       You will replace the contacts_vg.json in the videograms directory of your tablet
       with the one generated here. 
-    </h3><br/>
-    <h3>
+    </b><br/>
+    <b>
       Once you've done that, create your trusty DD folder at the root of your tablet. Name your movies
       as follows: 0000000001.MP4    -     0000000002.MP4    -    0000000100.MP4
-      <br/>
-      ** IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOUSLY .MP4 CAPITALIZED.
-    </h3><br/>
+      <br/><br/>
+      ** IT'S IMPORTANT THAT THE FILE NAME BE 10 DIGITS LONG AND OBVIOUSLY .MP4 CAPITALIZED. **
+    </b><br/><br/>
     <p>
       For either of these options to work, you need to have had videograms on your tablet at some
       point.
@@ -124,12 +123,8 @@ const IndexPage = () => {
       </div>
     </p>
     <p>
-      <p>
-        **<b>This option may not work depending on your browser version. If 
-          it doesn't, you'll have to use a pre-made one from above.</b>**
-      This method doesn't give you any of your grams that you already had. It just adds
-      300 slots for movies, or however many slots you enter in the field.
-      </p>
+    **<b>This option may not work depending on your browser version. If 
+          it doesn't, you'll have to use a pre-made one from above.</b>**<br />
       How many slots do you want? 
       <input onChange={(e) => {
         setSlots(e.target.value);
@@ -137,19 +132,7 @@ const IndexPage = () => {
       } 
       type="text" 
       value={slots} /> &nbsp;&nbsp;&nbsp;
-      <button className="btn btn-primary" onClick={handleGeneric}>Download Generic contacts_vg</button>
-    </p>
-    <p>
-      <p>
-        <h3>This is in beta version. Currently for testing only.</h3>
-        This option will take your current contact_vg.json file, and add a given number of slots 
-        to it. This will allow you to keep your current video grams, and just tack some slots on
-        after them.
-      </p>
-      <input type="file" onChange={e => handleGram(e.target.files[0])} />
-    </p>
-    <p>
-      <Link to="/buildgroups/">Build Groups</Link>
+      <button className="btn btn-primary" onClick={handleGeneric}>Download contacts_vg</button>
     </p>
   </Layout>
   )
