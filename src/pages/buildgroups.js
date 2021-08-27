@@ -3,6 +3,7 @@ import { saveAs } from 'file-saver';
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import "../components/bootstrap.css";
+import { StaticImage } from "gatsby-plugin-image";
 
 let vgRawJson = {"contactList":{},"isSuspended":false,"isVGEnabled":true};
 
@@ -13,7 +14,8 @@ const BuildGroups = () => {
     const [groups, setGroups] = useState([]);
     const [prevIndex, setPrevIndex] = useState(0);
 
-    const names = ["Ava", "Olivia", "Sophia", "Isabella", "Mia", "Charlotte", "Emma", "Wren", "Victoria"];
+    const names = ["Ava", "Olivia", "Sophia", "Isabella", 
+    "Mia", "Charlotte", "Emma", "Wren", "Victoria", "Taylor", "Rebecca", "Scarlette"];
     const rndName = names[Math.floor(Math.random()*names.length)];
 
     const addGroup = () => {
@@ -60,6 +62,7 @@ const BuildGroups = () => {
     const buildVg = () => {
         let contactObj = {}, contactNum;
         let maxIndex = 1; 
+        let d = new Date("2020-02-15T22:34:28.001");
 
         // Iterate over each group.
         groups.forEach((group) => {
@@ -88,8 +91,11 @@ const BuildGroups = () => {
                     milli = "00" + fileName;
                 }
 
+                d.setDate(d.getDate() + 1);
+                const noZ = d.toISOString().replace('Z', '');
+               
                 let addVg = {
-                    "createdDate":"2021-08-15T22:34:28." + milli,
+                    "createdDate":noZ,
                     "id":key,
                     "isKeyframeCorrupted":false,
                     "isRead":true,
@@ -133,6 +139,10 @@ const BuildGroups = () => {
             This will make it much easier navigating to whatever you're trying to watch.
         </p>
         <p>
+            Unless you find a compatible browser, chances are you'll have to use this from a phone.
+            If you're on a tablet, download the pre-built group file below until you get to a jack!
+        </p>
+        <p>
             <table style={{ border: `none` }}>
                 <tr>
                     <td style={{ width: `200px` }}>
@@ -158,10 +168,15 @@ const BuildGroups = () => {
             </table>
         </p>
         <p>
-            <b>Pay close attention to File Names here!</b> You must name your files accordingly
-                for your videos to show up in the correct group.
-            
-            <br /><br />
+            {
+                (groups.length > 0) ? 
+                <><b>Pay close attention to File Names here!</b>
+                <> You must name your files accordingly for your videos to show up in 
+                the correct group.</><br /><br /></>
+                : 
+                ""
+            }
+
             <ul>
             {
                 groups.map((group, i) => (
@@ -177,11 +192,34 @@ const BuildGroups = () => {
             <br />
             { 
                 (groups.length > 0) ? 
-                    <button onClick={buildVg} className="btn btn-info">Build contact_vg.json</button> 
+                    <button onClick={buildVg} className="btn btn-info">
+                        Build and Download contact_vg.json
+                    </button> 
                     : 
                     "" 
             }
         </p>
+        { 
+                (groups.length == 0) ?
+                    <p>
+                        <h2>Pre-Built Group File</h2>
+                        <br/>
+                        <a download href="http://gramsmash.netlify.app/vg/group1/contacts_vg.json" style={{ color: `white` }} className="btn btn-info">
+                            Download Pre-Built Groups contact_vg.json
+                        </a>
+                        <br/>
+                        <StaticImage
+                        src="../images/group1.png"
+                        width={440}
+                        quality={95}
+                        formats={["AUTO", "WEBP", "AVIF"]}
+                        alt="A gram smasher group..."
+                        style={{ marginBottom: `1rem` }}
+                        />
+                    </p>
+                    :
+                    ""
+        }
         </Layout>
     )
 }
